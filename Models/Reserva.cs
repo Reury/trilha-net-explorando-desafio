@@ -9,11 +9,12 @@ namespace DesafioProjetoHospedagem.Models
         public Reserva() 
         { 
             Hospedes = new List<Pessoa> ();
+            Suite = new Suite();
         }
 
         public Reserva(int diasReservados )
         {
-            Suite = Suite;
+            Suite = new Suite();
             Hospedes = new List<Pessoa>();
             DiasReservados = diasReservados;
         }
@@ -22,9 +23,10 @@ namespace DesafioProjetoHospedagem.Models
         {
             //  Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
             // *IMPLEMENTE AQUI*
-            if (Suite.Capacidade < Hospedes.Count)
+            Hospedes = hospedes;
+            if (Suite.Capacidade > Hospedes.Count)
             {
-                Hospedes = hospedes;
+               Console.WriteLine("quantidade ok");
             }
             else
             {
@@ -36,6 +38,7 @@ namespace DesafioProjetoHospedagem.Models
         public void CadastrarSuite(Suite suite)
         {
             Suite = suite;
+         
         }
 
         public int ObterQuantidadeHospedes()
@@ -55,7 +58,8 @@ namespace DesafioProjetoHospedagem.Models
             // *IMPLEMENTE AQUI*
             if (DiasReservados>=10)
             {
-                valor =valor * (10 /100);
+                Console.WriteLine(valor);
+                valor = valor * 90 / 100;
             }
 
             return valor;
