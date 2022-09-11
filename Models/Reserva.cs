@@ -6,10 +6,15 @@ namespace DesafioProjetoHospedagem.Models
         public Suite Suite { get; set; }
         public int DiasReservados { get; set; }
 
-        public Reserva() { }
+        public Reserva() 
+        { 
+            Hospedes = new List<Pessoa> ();
+        }
 
-        public Reserva(int diasReservados)
+        public Reserva(int diasReservados )
         {
+            Suite = Suite;
+            Hospedes = new List<Pessoa>();
             DiasReservados = diasReservados;
         }
 
@@ -39,12 +44,12 @@ namespace DesafioProjetoHospedagem.Models
             return Hospedes.Count;
         }
 
-        public decimal CalcularValorDiaria()
+        public decimal CalcularValorDiaria(Suite suite)
         {
             // TODO: Retorna o valor da diária
             // Cálculo: DiasReservados X Suite.ValorDiaria
             // *IMPLEMENTE AQUI*//
-            decimal valor = Suite.ValorDiaria *DiasReservados;
+            decimal valor = suite.ValorDiaria *DiasReservados;
 
             // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
             // *IMPLEMENTE AQUI*
